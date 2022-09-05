@@ -1,7 +1,7 @@
 
 # pytest-cov 란?
 
-`pytest-cov`는 `--cov` 옵션 추가하여 테스트 대상의 coverage를 확인할 수 있습니다. 사용자는 coverage 수치를 통해 테스트의 적용범위를 가늠할 수 있습니다.
+`pytest-cov`는 `--cov` 옵션 추가하여 테스트 대상의 coverage를 확인할 수 있습니다. 사용자는 coverage 수치를 통해 테스트의 적용범위를 파악할 수 있습니다.
 
 <br><br><br>
 
@@ -41,7 +41,7 @@ pytest --cov=[src] [test]
 
 # 명령어 예시
 
-`pytest-cov` 는 명령어 조합에 따라 다음과 같은 경우의 수를 가집니다. clone 받은 소스코드를 하여 따라해보세요.
+`pytest-cov` 는 명령어 조합에 따라 다음과 같은 경우의 수를 가집니다. 소스코드를 클론 받아 따라해보세요.
 
 <br>
 
@@ -127,9 +127,11 @@ TOTAL              6      0   100%
 <br><br>
 
 ## 참고
-pytest-cov에 대해 더 자세한 내용을 알고 싶다면 [공식문서](https://pytest-cov.readthedocs.io/en/latest/)를 확인해주세요.
-<br><br>
 
+pytest-cov에 대해 더 자세한 내용을 알고 싶다면 [공식문서](https://pytest-cov.readthedocs.io/en/latest/)를 확인해주세요.
+
+<br><br>
+---
 위의 예시와 공식문서를 참고하여 직접 명령어를 입력해보세요.<br>
 당신의 프로젝트에 적용해보고 coverage를 확인해보세요.
 
