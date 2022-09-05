@@ -1,6 +1,136 @@
-pytest --cov 는 전체폴더와 전체 테스트에 대한 cov
-pytest --cov=app 은 app폴더에 대한 cov(특정 폴더만 확인할 수 있음, 테스트는 전체 돌아감)
-pytest --cov=app tests/ 는 tests폴더안에 있는 테스트를 확인함(테스트를 분류해서 돌릴 수 있음)
-pytest tests/ 는 해당폴더에 있는 테스트 코드만 실행
-즉, 앞에는 cov 확인 폴더 뒤에는 테스트 돌릴 경로 라고 이해하면 됨
 
+# pytest-cov 란?
+
+`pytest-cov`는 `--cov` 옵션 추가하여 테스트 대상의 coverage를 확인할 수 있습니다. 사용자는 coverage 수치를 통해 테스트의 적용범위를 가늠할 수 있습니다.
+
+<br><br><br>
+
+
+# 실습 방법 
+
+<br>
+
+### 레포지토리 복사
+```
+git clone https://github.com/Daco2020/pytest-cov-practice.git
+```
+
+<br>
+
+### 라이브러리 설치
+```
+pip install pytest-cov
+```
+
+<br>
+
+### 실행 명령어
+```
+pytest-cov --cov
+```
+또는
+```
+pytest-cov --cov=[src] [test]
+```
+
+- `[src]` 위치에 대상을 명시하면 대상에 대해서만 Cover를 확인할 수 있습니다. 
+
+- `[test]` 위치에 경로를 입력하면 해당 경로의 테스트만 수행합니다.
+
+
+<br><br><br>
+
+# 명령어 예시
+
+
+<br>
+
+
+`pytest-cov` 는 명령어 조합에 따라 다음과 같은 경우의 수를 가집니다.
+
+<br><br>
+
+### 1. `pytest --cov` 는 모든 테스트를 실행하고, 대상 전체의 Cover를 보여줍니다.
+```sh
+# 실행
+
+pytest --cov
+```
+```sh
+# 결과
+
+collected 4 items
+
+tests/test_main.py .. 
+tests/test_serve.py ..  
+
+---------- coverage: platform darwin, python 3.10.6-final-0 ----------
+Name                  Stmts   Miss  Cover
+-----------------------------------------
+main/file.py              6      0   100%
+serve/file.py             6      0   100%
+tests/__init__.py         0      0   100%
+tests/test_main.py        5      0   100%
+tests/test_serve.py       5      0   100%
+-----------------------------------------
+TOTAL                    22      0   100%
+```
+
+<br><br>
+
+
+### 2. `pytest --cov=main` 는 모든 테스트를 실행하고, main에 대해서만 Cover를 보여줍니다.
+```sh
+# 실행
+
+pytest --cov=main
+```
+```sh
+# 결과
+
+collected 4 items
+
+tests/test_main.py ..
+tests/test_serve.py ..
+
+---------- coverage: platform darwin, python 3.10.6-final-0 ----------
+Name           Stmts   Miss  Cover
+----------------------------------
+main/file.py       6      0   100%
+----------------------------------
+TOTAL              6      0   100%
+
+```
+
+<br><br>
+
+
+### 3. `pytest --cov=main tests/test_main.py` 는 test_main.py의 테스트만 실행하고, main에 대해서만 Cover를 보여줍니다.
+```sh
+# 실행
+
+pytest --cov=main tests/test_main.py
+```
+```sh
+# 결과
+
+collected 2 items                          
+
+tests/test_main.py ..
+
+---------- coverage: platform darwin, python 3.10.6-final-0 ----------
+Name           Stmts   Miss  Cover
+----------------------------------
+main/file.py       6      0   100%
+----------------------------------
+TOTAL              6      0   100%
+
+
+```
+
+
+<br><br><br>
+
+
+
+*clone 받은 실습 코드를 바탕으로 직접 명령어를 입력하여 차이점을 확인해보세요!
