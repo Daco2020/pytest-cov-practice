@@ -25,11 +25,11 @@ pip install pytest-cov
 
 ### 실행 명령어
 ```
-pytest-cov --cov
+pytest --cov
 ```
 또는
 ```
-pytest-cov --cov=[src] [test]
+pytest --cov=[src] [test]
 ```
 
 - `[src]` 위치에 대상을 명시하면 대상에 대해서만 Cover를 확인할 수 있습니다. 
